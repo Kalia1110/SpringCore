@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="no"  xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<bean id="tp1" class="kcp.spring.beans.TravalPlan" >
+		<property name="placeName">
+			<list>
+				<value>berhampur</value>
+				<value>ganjam</value>
+				<value>Bhanjanagar</value>
+				<value>darnibadi</value>
+				<value>bulbani</value>
+				<value>bhabanrswar</value>
+				<value>koraput</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="tp2" class="kcp.spring.beans.TravalPlan"  >
+		<property name="placeName">
+			<array>
+			<value>ctc</value>
+			<value>bbsr</value>
+			<value>koraput</value>
+			</array>
+		</property>
+	</bean>
+	<bean id="agent" class="kcp.spring.beans.TravalAgent"
+		autowire="byName">
+		<property name="name" value="MKS"></property>
+	</bean>
+
+</beans>
