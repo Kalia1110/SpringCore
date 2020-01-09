@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<bean id="kalu" class="kcp.spring.beans.BankCostomer">
+		<constructor-arg>
+			<bean id="bank" class="kcp.spring.beans.BankAccount">
+				<property name="acno" value="1234567890" />
+				<property name="holderName" value="kalu charan panda" />
+				<property name="balance" value="23456" />
+				<property name="netBanking" value="true" />
+			</bean>
+		</constructor-arg>
+		<constructor-arg value="sbi" />
+	</bean>
+
+</beans>
