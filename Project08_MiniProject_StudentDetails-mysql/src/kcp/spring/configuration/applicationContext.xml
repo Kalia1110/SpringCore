@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<bean id="props"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<!-- <property name="location" value="kcp/spring/commons/mysql.properties"/> -->
+		<property name="locations">
+			<list>
+				<value>kcp/spring/commons/mysql.properties</value>
+				<value>kcp/spring/commons/mysql1.properties</value>
+			</list>
+		</property>
+		<!-- <context:property-placeholder location="kcp/spring/commons/mysql.properties,kcp/spring/commons/mysql1.properties"/>
+	 --></bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${user}" />
+		<property name="password" value="${pwd}" />
+	</bean>
+
+	<bean id="studentDAO" class="kcp.spring.dao.StudentDAOImpl">
+		<constructor-arg ref="dataSource" />
+	</bean>
+
+	<bean id="studentService"
+		class="kcp.spring.sevice.StudentServiceImpl">
+		<constructor-arg ref="studentDAO" />
+	</bean>
+
+	<bean id="studentControl"
+		class="kcp.spring.controller.StudentControl">
+		<constructor-arg ref="studentService" />
+	</bean>
+</beans>
