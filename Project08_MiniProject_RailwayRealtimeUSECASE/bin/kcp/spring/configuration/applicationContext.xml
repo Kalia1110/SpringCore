@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url"
+			value="jdbc:oracle:thin:@localhost:1521:orcl" />
+		<!-- <property name="username" value="scott" /> <property name="password" 
+			value="kalia" /> -->
+		<property name="connectionProperties">
+			<props>
+				<prop key="user">scott</prop>
+				<prop key="password">kalia</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="PassengerDAO" class="kcp.spring.dao.PassengerDAOImpl">
+		<constructor-arg ref="dataSource" />
+	</bean>
+
+	<bean id="PassengerService"
+		class="kcp.spring.service.PassengerServiceImpl">
+		<constructor-arg ref="PassengerDAO" />
+	</bean>
+
+	<bean id="MainController"
+		class="kcp.spring.controller.MainController">
+		<constructor-arg ref="PassengerService" />
+	</bean>
+
+
+</beans>
