@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<bean id="dt" class="java.util.Date" />
+
+	<bean id="dob" class="java.util.Date">
+		<property name="year" value="110" />
+		<property name="date" value="15" />
+		<property name="month" value="6" />
+	</bean>
+	<bean id="doj" class="java.util.Date">
+		<property name="year" value="110" />
+		<property name="date" value="28" />
+		<property name="month" value="9" />
+	</bean>
+	<bean id="dop" class="java.util.Date">
+		<property name="year" value="110" />
+		<property name="date" value="10" />
+		<property name="month" value="9" />
+	</bean>
+
+	<bean id="student" class="kcp.spring.beans.Student">
+		<property name="dates">
+			<array>
+				<ref bean="dt" />
+				<ref bean="dob" />
+				<ref bean="doj" />
+				<ref bean="dop" />
+			</array>
+		</property>
+		<property name="marks">
+			<array>
+				<value>66</value>
+				<value>77</value>
+				<value>88</value>
+			</array>
+		</property>
+	</bean>
+	<!-- ********************************************************** -->
+	<bean id="clg" class="kcp.spring.beans.CollegeSet">
+		<property name="collegeName">
+			<set value-type="java.lang.String">
+				<value>ksub college</value>
+				<value>Khallikote college</value>
+				<value>berham college</value>
+				<value>asc collge</value>
+			</set>
+		</property>
+		<property name="totalStudent">
+			<set value-type="java.lang.Integer">
+				<value>2000</value>
+				<value>1000</value>
+				<value>1234</value>
+				<value>321</value>
+			</set>
+		</property>
+	</bean>
+	<!-- ********************************************************** -->
+	<bean id="person" class="kcp.spring.beans.PersonInfo">
+		<property name="personName">
+			<list>
+				<value>Kalu Charan Panda</value>
+				<value>jagannath panda</value>
+				<value>swadhin biswal</value>
+				<value>surdasan nahak</value>
+				<value>Kalu Charan Panda</value>
+			</list>
+		</property>
+		<property name="address">
+			<list>
+				<value>bhanjanagar</value>
+				<value>berhampur</value>
+				<value>keujhar</value>
+				<value>aska</value>
+				<value>bhanjanagar</value>
+			</list>
+		</property>
+	</bean>
+	<!-- ********************************************************** -->
+	<bean id="fruits" class="kcp.spring.beans.fruitsMap">
+		<property name="fruitName">
+			<map key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="banana" value="yellow" />
+				<entry key="graps" value="green" />
+				<entry key="orange" value="yellow" />
+				<entry key="paine apple" value="dark green" />
+				<entry key="Apple" value="Red" />
+			</map>
+		</property>
+	</bean>
+	<!-- ********************************************************** -->
+	<bean id="faculty" class="kcp.spring.beans.Faculty">
+	<property name="fName" >
+	<props>
+	<prop key="hari krishna">java</prop>
+	<prop key="nataraj">spring</prop>
+	<prop key="murali">oracle</prop>
+	</props>
+	
+	</property>
+	
+	
+	
+	</bean>
+	
+	
+	
+	
+	
+	
+</beans>
