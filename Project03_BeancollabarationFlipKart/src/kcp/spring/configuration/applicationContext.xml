@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="dtdc" class="kcp.spring.beans.DTDC"/>
+<bean id="hsl" class="kcp.spring.beans.HSL"/>
+<bean id="blueDart" class="kcp.spring.beans.BlueDart"/>
+
+<bean id="flipKart" class="kcp.spring.beans.FlipKart">
+<!-- <constructor-arg ref="blueDart"/> -->
+<!-- <constructor-arg ref="dtdc"/> -->
+<constructor-arg ref="hsl"/>
+</bean>
+</beans>
